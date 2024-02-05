@@ -1,0 +1,31 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "wp": "astro dev & npm run watch:sass & npm run esbuild",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "watch:sass": "sass --no-source-map --watch src/styles/sass/:wp/wp-content/themes/●●●/css/",
+    "esbuild": "node esbuild.mjs",
+    "markuplint": "markuplint \"./src/**/*.astro\""
+  },
+  "dependencies": {
+    "@markuplint/astro-parser": "^3.11.0",
+    "@splidejs/splide": "^4.1.4",
+    "@types/node": "^20.8.10",
+    "astro": "^3.4.3",
+    "astro-relative-links": "^0.3.4",
+    "esbuild": "^0.19.5",
+    "ez.js": "^1.0.3",
+    "gsap": "^3.12.5",
+    "jump.js": "^1.0.2",
+    "markuplint": "^3.14.0",
+    "sass": "^1.69.5",
+    "watch": "^1.0.2"
+  }
+}

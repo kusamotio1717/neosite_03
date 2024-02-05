@@ -1,0 +1,719 @@
+@use '../foundation/variable' as *;
+
+.mv{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(77vh - 118px);
+  padding-bottom: 30px;
+  min-height: 758px;  
+  color: #fff;
+  z-index: 2;
+  &-n3Link{
+    position: fixed;
+    bottom: 270px;
+    right: 4%;
+    z-index: 1;
+    @include tab{
+      right: 2%;
+    }
+    @include sp{
+      bottom: 10px;
+    }
+  }
+}
+
+.mvCopy{
+  width: fit-content;
+  &-main{
+    font-size: min(12.8rem , 12vw);
+    font-weight: 800;
+    line-height: .9;
+    em{
+      color: var(--themeColor);
+    }
+  }
+  &-sub{
+    font-size: min(3.6rem , 3.5vw);
+    font-weight: bold;
+    em{
+      color: var(--themeColor);
+    }
+  }
+}
+
+.welcome{
+  @include section-center;
+  background: #fff;
+  border-radius: 20px;
+  padding: 100px 40px;
+  overflow: hidden;
+  @include tab{
+    padding: 40px 5%;
+  }
+  &-title{
+    margin-bottom: 15px;
+    font-size: min(8rem , 7vw);
+    font-weight: 800;
+    text-align: center;
+    em{
+      margin: 0 20px;
+      color: var(--themeColor);
+      font-size: min(9rem , 8vw);
+    }
+  }
+  &-lead{
+    margin-bottom:60px;
+    font-size: min(3.6rem , 3.1vw);
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.35;
+    @include font-nunito;
+  }
+}
+
+.welcomeContents{
+  display: flex;
+  justify-content: center;
+  @include md-tab{
+    justify-content: flex-start;
+  }
+  &-des{
+    border-right: 1px solid var(--fontColor);
+    padding-right: 40px;
+    &-en{
+      margin-bottom: 30px;
+      font-size: min(6.4rem , 5.2vw);
+      font-weight: bold;
+      line-height: .9;
+      text-align: right;
+    }
+    &-text{
+      margin-bottom: 40px;
+      font-weight: bold;
+      font-size: min(3.6rem , 3.1vw);
+      text-align: right;
+    }
+    &-github{
+      text-align: right;
+    }
+  }
+  &-num{
+    padding-left: 40px;
+    &-item{
+      & + &{
+        margin-top: 25px;
+      }
+      &-main{
+        display: block;
+        font-size: min(16rem , 11vw);
+        font-weight: 800;
+        color: var(--themeColor);
+        line-height: .75;
+      }
+      &-sub{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: min(4.8rem , 4.2vw);
+        font-weight: 800;
+        line-height: 1.35;
+        &-icon{
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+.progress{
+  margin-top: 220px;
+  padding-bottom: 200px;
+  color: #fff;
+  &-title{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: min(8rem , 7vw);
+    font-weight: 800;
+    em{
+      color: var(--themeColor);
+      font-size: min(9rem , 8.5vw);
+    }
+  }
+  &-lead{
+    padding-inline: 5%;
+    text-align: center;
+    font-weight: 600;
+    font-size: min(2.4rem , 2.2vw);
+    p{
+      line-height: 1.2;
+    }
+  }
+}
+
+.progressCard-wrap{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 80px;
+  @include md-tab{
+    padding-inline: 5%;
+  }
+  @include tab{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 0;
+  }
+  @include sp{
+    flex-direction: column;
+  }
+}
+
+.progressCard{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 310px;
+  height: 310px;
+  @include tab{
+    margin: 0 auto;
+  }
+  &::before, &::after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: all .3s;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+  &::before{
+    opacity: 1;
+    background: linear-gradient(135deg,#00E599 , rgba(0, 230, 153, 0.3));
+  }
+  &::after{
+    opacity: 0;
+    background: linear-gradient(135deg,#000033 , rgba(0, 0, 0, 0.25));
+  }
+  @include hover{
+    &:hover{
+      &::before{
+        opacity: 0;
+        transform: scale(.96);
+      }
+      &::after{
+        transform: scale(.96);
+        opacity: 1;
+      }
+    }
+  }
+  a{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  &-illust{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    transition: all .3s;
+    @include hover{
+      a:hover &{
+        transform: translateY(10px);
+      }
+    }
+  }
+  &-main{
+    margin-bottom: 5px;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--fontColor);
+    transition: all .3s;
+    @include hover{
+      a:hover &{
+        color: #fff;
+      }
+    }
+  }
+  &-more{
+    font-size: 2rem;
+    font-weight: 800;
+  }
+}
+
+.technology{
+  padding-top: 200px;
+  padding-bottom: 80px;
+  background: #fff;
+  @include tab{
+    padding-top: 100px;
+  }
+}
+
+.technologySummary{
+  @include section-center;
+  display: flex;
+  gap: 110px;
+  @include tab{
+    gap: 40px;
+  }
+  @include sp{
+    flex-direction: column;
+  }
+  &-titleArea{
+    flex:1;
+    margin-bottom: 80px;
+    &-main{
+      line-height: 1;
+      font-size: min(8rem , 7vw);
+      font-weight: 800;
+    }
+    &-sub{
+      font-size: 3.2rem;
+      font-weight: 800;
+      em{
+        margin-right: 10px;
+        color: var(--themeColor);
+        font-size: 3.6rem;
+      }
+    }
+    &-text{
+      margin-top: 40px;
+      font-size: 2rem;
+      p{
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+.technologyMarks{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  height: fit-content;
+  @include tab{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include sp{
+    gap: 0;
+  }
+}
+
+.tecPanelsSlider{
+  &-track{
+    padding-block: 80px 90px;
+    @include sp{
+      padding-block: 80px 0;
+    }
+  }
+  .splide__slide{
+    padding-inline: 25px;
+    &.is-active{
+      padding-inline: 88px;
+      @include sp{
+        padding-inline: 0;
+      }
+    }
+  }
+  &-next{
+    position: absolute;
+    top: 50%;
+    aspect-ratio: 0.94;
+    z-index: 1;
+    cursor: pointer;
+    transform: translate(-50% , -50%);  
+    @include md{
+      right: auto !important;//js上書き
+      left: calc(5% + 424.2px);
+    }
+    @include tab{
+      right: auto !important;//js上書き
+      left: calc(5% + 424.2px);
+    }
+    @include sp{
+      right: auto !important;//js上書き
+      left: 80%;
+      width: 78px;
+    }
+    svg{
+      transition: all .3s;
+      @include sp{
+        width: 100%;
+        height: 100%;
+      }
+      @include hover{
+        &:hover{
+          transform: scale(1.2);
+          circle{
+            transition: fill-opacity .5s;
+            fill-opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tecPanel{
+  width: 303px;
+  background: linear-gradient(#CDEFE9 ,#f8fffd);
+  border-radius: 10px;
+  padding: 10px 36px;
+  transition: transform .3s;
+  aspect-ratio: 0.94;
+  @include sp{
+    width: auto;
+    padding: 20px 20px;
+  }
+  .splide__slide.is-active &{
+    transform: scale(1.4);
+  }
+  &-img{
+    width: 145px;
+    max-width: 100%;
+    margin: 0 auto 10px;
+    @include sp{
+      width: 60%;
+    }
+    img{
+      width: 100%;
+    }
+  }
+  &-title{
+    font-size: 2.1rem;
+    font-weight: 800;
+    @include sp{
+      font-size: 1.8rem;
+    }
+  }
+  &-ja{
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+  &-text{
+    font-size: 1.167rem;
+  }
+}
+
+.btnCenter{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.community{
+  padding-top: 110px;
+  margin-bottom: 150px;
+}
+
+.communitySummary{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 40px;
+  @include section-center;
+  @include sp{
+    display: block;
+  }
+  &-img{
+    width: min(45% , 590px);
+    padding-left: 60px;
+    @include md-tab{
+      padding-left: 0;
+    }
+    @include tab{
+      display: none;
+    }
+    @include sp{
+      display: none;
+    }
+  }
+}
+
+.communitySummaryDesc{
+  flex:1;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  color: #fff;
+  &-title{
+    margin-bottom: 35px;
+    &-en{
+      display: block;
+      margin-bottom: 5px;
+      font-size: min(8rem , 7vw);
+      font-weight: 800;
+      line-height: 1;
+    }
+    &-ja{
+      font-size: min(3.2rem , 3vw);
+      font-weight: 800;
+      color: var(--themeColor);
+    }
+  }
+  &-text{
+    font-size: 2rem;
+    p{
+      line-height: 1.4;
+    }
+  }
+}
+
+.communityFlow-wrap{
+  max-width: 1252px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) , rgba(255, 255, 255, 0.01));
+  color: #fff;
+  @include md-tab{
+    width: 90%;
+    padding-inline: 3%;
+  }
+  @include tab{
+    padding-block: 10px 30px;
+  }
+}
+
+.communityFlow{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  &::before{
+    content:'';
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    width: 60%;
+    height: 10px;
+    margin: auto;
+    background: var(--themeColor);
+    @include md-tab{
+      left: -2%;
+    }
+  }
+  &-item{
+    position: relative;
+    width: 100%;
+    &-img{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 220px;
+      margin-right: 11%;
+      margin-bottom: 5px;
+    }
+    &-text{
+      width: 80%;
+      margin: 0 auto;
+      font-weight: bold;
+      p{
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.dualToken{
+  @include section-center;
+  margin-bottom: 180px;
+  padding: 90px 70px 80px 100px;
+  background: #fff;
+  max-width: 1252px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 20px;
+  @include md-tab{
+    padding-inline: 5% 3%;
+  }
+}
+
+.dualTokenContent{
+  width: 520px;
+  &-title{
+    margin-bottom: 20px;
+    &-en{
+      display: block;
+      margin-bottom: 5px;
+      font-size: min(8rem , 7vw);
+      font-weight: bold;
+      line-height: 1;
+    }
+    &-ja{
+      display: block;
+      font-size: min(3.2rem , 3vw);
+      color: var(--themeColor);
+      font-weight: 800;
+    }
+  }
+  &-subCopy{
+    margin-bottom: 20px;
+    font-size: min(2.2rem , 2vw);
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  &-text{
+    margin-bottom: 40px;
+    font-size: min(2rem , 1.8vw);
+    p{
+      line-height: 1.4;
+    }
+  }
+  &-btns{
+    a{
+      @include tab{
+        font-size: 1.5rem;
+        letter-spacing: normal;
+      }
+      & + a{
+        margin-top: 28px;
+      }
+    }
+  }
+}
+
+.philosophy{
+  @include section-center;
+  max-width: 1252px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 100px 100px 80px;
+  color: #fff;
+  @include md-tab{
+    padding: 100px 5% 80px;
+  }
+  &-title{
+    margin-bottom: 60px;
+    font-size: min(8rem , 7vw);
+    font-weight: 800;
+    text-align: center;
+    em{
+      color: var(--themeColor);
+    }
+    &-main{
+      display: block;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+    &-sub{
+      display: block;
+      font-size: 3.2rem;
+      font-weight: 800;
+    }
+  }
+}
+
+.philosophyDl{
+  &-item{
+    display: flex;
+    justify-content: center;
+    @include tab{
+      display: block;
+    }
+    @include sp{
+      flex-direction: column;
+      align-items: center;
+    }
+    & + &{
+      @include pc{
+        .philosophyDl-item-title,.philosophyDl-item-text{
+          padding-top: 60px;
+        }
+      }
+      @include tab{
+        margin-top: 60px;
+      }
+    }
+    &-title{
+      width: 400px;
+      padding-right: 40px;
+      border-right: 2px solid #fff;
+      font-size: 6.4rem;
+      color: var(--themeColor);
+      font-weight: 800;
+      text-align: right;
+      line-height: 1;
+      @include md-tab{
+        width: 300px;
+      }
+      @include tab{
+        width: 100%;
+        margin-bottom: 20px;
+        padding-right: 0;
+        border-right: none;
+        text-align: center;
+      }
+      @include sp{
+        width: auto;
+      }
+    }
+    &-text{
+      flex:1;
+      padding-left: 40px;
+      font-size: min(3.4rem , 3.4vw);
+      font-weight: bold;
+      line-height: 1.4;
+      @include tab{
+        text-align: center;
+      }
+    }
+  }
+}
+
+.asideContents{
+  margin-top: 140px;
+  @include section-center;
+  max-width: 1252px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.alphaPanel{
+  width: 46%;
+  border-radius: 20px;
+  padding: 70px 5%;
+  background: rgba(255, 255, 255, 0.8);
+  &-title{
+    margin-bottom: 30px;
+    font-size: min(4.8rem , 4.5vw);
+    font-weight: 800;
+    text-align: center;
+    &-main{
+      display: block;
+      margin-bottom: 5px;
+      line-height: 1;
+    }
+    &-sub{
+      display: block;
+      font-size: 1.8rem;
+      font-weight: normal;
+    }
+  }
+  &-ndapp{
+    text-align: center;
+    margin-top: 80px;
+  }
+  &-partners{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 340px;
+    margin: 0 auto;
+    gap: 8px 10px;
+  } 
+}

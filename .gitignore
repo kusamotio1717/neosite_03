@@ -1,0 +1,7 @@
+node_modules/
+wp-includes/
+wp-admin/
+*/.DS_Store
+dist/
+bun.lockb
+package-lock.json

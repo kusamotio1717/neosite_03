@@ -1,0 +1,141 @@
+@use '../foundation/variable' as *;
+
+.dwMenu{
+  appearance: none;
+  position: fixed;
+  top: 32px;
+  right: 30px;
+  display: inline-block;
+  width: 40px;
+  height:40px;
+  border: none;
+  background: transparent;
+  z-index: 150;
+  cursor: pointer;
+  @include pc-tab{
+    display: none;
+  }
+  > span{
+    position: absolute;
+    left: 6px;
+    display: block;
+    height: 1px;
+    background: #fff;
+    transition: background-color .3s .2s;
+    .dwMenu-active & {
+      left: 8px;
+    }
+  }
+  &.is-white span{
+    background: #ccc;
+  }
+  &-top{
+    top:10px;
+    width: 26px;
+    transform-origin: right;
+    animation: dwmenu-top-off .8s forwards;
+    .dwMenu-active & {
+      animation: dwmenu-top .8s forwards;
+    }
+  }
+  &-middle{
+    top: 20px;
+    width: 26px;
+    animation: dwmenu-middle-off .8s forwards;
+    .dwMenu-active & {
+      animation: dwmenu-middle .8s .1s  forwards;
+    }
+  }
+  &-bottom{
+    top: 30px;
+    width: 26px;
+    transform-origin: left;
+    animation: dwmenu-bottom-off .8s forwards;
+    .dwMenu-active & {
+      animation: dwmenu-bottom .8s .1s forwards;
+    }
+  }
+}
+
+// hover時のアニメーション
+@keyframes dwmenu-top{
+  0%{
+    transform: translateX(0) translateY(0) scaleX(1) rotate(0);
+  }
+  20%{
+    transform: translateX(0) translateY(0) scaleX(0) rotate(0);
+  }
+  80%{
+    transform: translateX(-5px) translateY(21.5px) scaleX(0) rotate(0);
+  }
+  100%{
+    transform: translateX(-5px) translateY(21.5px) scaleX(1) rotate(45deg);
+  }
+}
+@keyframes dwmenu-middle{
+  0%{
+    transform: scaleX(1);
+  }
+  20%{
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  100%{
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+@keyframes dwmenu-bottom{
+  0%{
+    transform: translateX(0) scaleX(1) rotate(0);
+  }
+  20%{
+    transform: translateX(0) scaleX(0) rotate(0);
+  }
+  80%{
+    transform: translate(3px, 1px) scaleX(0) rotate(0);
+  }
+  100%{
+    transform: translate(3px, 1px) scaleX(1) rotate(-45deg);
+  }
+}
+// マウスアウト時のアニメーション
+@keyframes dwmenu-top-off{
+  0%{
+    transform: translateX(-5px) translateY(21.5px) scaleX(1) rotate(45deg);
+  }
+  20%{
+    transform: translateX(-5px) translateY(21.5px) scaleX(0);
+  }
+  80%{
+    transform: translateX(0) translateY(0) scaleX(0) rotate(0);
+  }
+  100%{
+    transform: translateX(0) translateY(0) scaleX(1) rotate(0);
+  }
+}
+@keyframes dwmenu-middle-off{
+  0%{
+    transform: scaleX(0);
+  }
+  80%{
+    transform: scaleX(0);
+  }
+  100%{
+    transform: scaleX(1);
+  }
+}
+@keyframes dwmenu-bottom-off{
+  0%{
+    transform: translate(3px, 1px) scaleX(1) rotate(-45deg);
+  }
+  20%{
+    transform: translate(3px, 1px) scaleX(0) rotate(0);
+  }
+  80%{
+    transform: translateX(0) scaleX(0) rotate(0);
+  }
+  100%{
+    transform: translateX(0) scaleX(1) rotate(0);
+  }
+}

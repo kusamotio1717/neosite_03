@@ -1,0 +1,49 @@
+@use '../foundation/variable' as *;
+
+.header{
+  @include sp{
+    position: fixed;
+    top: 0;
+    z-index: 4;
+  }
+  &-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 118px;
+    padding: 0 5%;
+    @include tab{
+      height: auto;
+      align-items: flex-start;
+      padding-top: 30px;
+    }
+    @include sp{
+      height: auto;
+      padding: 34px 40px;
+    }
+  }
+  &-logo{
+    position: relative;
+    width: 112px;
+    z-index: 8;
+  }
+  &-r{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    @include tab{
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.headerBtn{
+  a{
+    font-size: 2rem;
+    height: 54px;
+    padding-inline: 20px 40px;
+  }
+}

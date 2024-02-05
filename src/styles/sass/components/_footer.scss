@@ -1,0 +1,72 @@
+@use '../foundation/variable' as *;
+
+.footer{
+  margin-top: 90px;
+  padding: 70px 0 35px;
+  background: #000033;
+  color: #fff;
+}
+
+.footerContents{
+  @include section-center;
+  display: grid;
+  grid-template: 
+    "logo nav" auto
+    "logo sns" auto
+    / 1fr 50%
+  ;
+  gap: 60px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #fff;
+}
+
+.footerLogo{
+  grid-area: logo;
+}
+
+.footerNavi{
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  padding-top: 10px;
+  @include tab{
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px
+  }
+  &-ul{
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    letter-spacing: .2rem;
+    &-li{
+      font-size: 2rem;
+      font-weight: 800;
+      a{
+        color: #fff;
+        &:hover{
+          opacity: .7;
+        }
+      }
+    }
+  }
+}
+
+.footerSns{
+  grid-area: sns;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  a{
+    font-size: 2rem;
+  }
+}
+
+.footerCopy{
+  @include section-center;
+  display: block;
+  margin-top: 15px;
+  font-size: 2rem;
+}
