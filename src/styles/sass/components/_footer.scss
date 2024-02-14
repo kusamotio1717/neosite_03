@@ -1,10 +1,12 @@
 @use '../foundation/variable' as *;
 
 .footer{
-  margin-top: 90px;
   padding: 70px 0 35px;
   background: #000033;
   color: #fff;
+  @include sp{
+    padding: 60px 12%;
+  }
 }
 
 .footerContents{
@@ -18,10 +20,21 @@
   gap: 60px;
   padding-bottom: 30px;
   border-bottom: 1px solid #fff;
+  @include sp{
+    grid-template: 
+      "logo" auto
+      "nav" auto
+      "sns" auto
+      / 1fr;
+    gap: 20px;
+  }
 }
 
 .footerLogo{
   grid-area: logo;
+  @include sp{
+    width: 150px;
+  }
 }
 
 .footerNavi{
@@ -36,19 +49,42 @@
     align-items: flex-end;
     gap: 20px
   }
+  @include sp{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
   &-ul{
     display: flex;
     justify-content: flex-end;
     gap: 30px;
     letter-spacing: .2rem;
+    @include sp{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
     &-li{
       font-size: 2rem;
       font-weight: 800;
+      @include sp{
+        font-weight: normal;
+      }
       a{
         color: #fff;
         &:hover{
           opacity: .7;
         }
+      }
+    }
+  }
+  &-contact{
+    @include sp{
+      margin-bottom: 40px;
+    }
+    a{
+      @include sp{
+        height: 46px;
       }
     }
   }
@@ -59,8 +95,21 @@
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  @include sp{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 7vw 7%;
+  }
   a{
     font-size: 2rem;
+  }
+  &-item{
+    @include sp{
+      width: 19.7%;
+    }
+    img{
+      width: 100%;
+    }
   }
 }
 
@@ -69,4 +118,8 @@
   display: block;
   margin-top: 15px;
   font-size: 2rem;
+  @include sp{
+    font-size: 1.6rem;
+    text-align: center;
+  }
 }

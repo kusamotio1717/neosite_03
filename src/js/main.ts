@@ -2,12 +2,12 @@
 import jump from 'jump.js';
 import { easeOutExpo } from 'ez.js';
 import Splide from '@splidejs/splide';
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
 gsap.registerPlugin(CSSRulePlugin);
-import { CustomEase } from "gsap/CustomEase";
+import { ArrowPositionExtension } from './ArrowPositionExtension';
 
 class MyFunc {
   /**
@@ -40,59 +40,41 @@ class MyFunc {
     return val;
   }
 
-  slider(){
-    const arrowEl = document.querySelector('.splide-arrow') as HTMLElement;
-    const widthXL = Number(getComputedStyle(arrowEl).getPropertyValue("--widthXL").replace(/[^0-9]/g, '')) - 1;
-    const widthLG = Number(getComputedStyle(arrowEl).getPropertyValue("--widthLG").replace(/[^0-9]/g, '')) - 1;
-    const widthTab = Number(getComputedStyle(arrowEl).getPropertyValue("--widthTab").replace(/[^0-9]/g, '')) - 1;
-    
-    const splide = new Splide( '.splide', {
-      type     : 'loop',
-      focus    : 'center',
+  slider() {
+    const widthTab =
+      Number(
+        getComputedStyle(document.body)
+          .getPropertyValue('--widthTab')
+          .replace(/[^0-9]/g, '')
+      ) - 1;
+
+    const splide = new Splide('.splide', {
+      type: 'loop',
+      focus: 0,
       autoWidth: true,
-      padding: { right: '60%' },
+      padding: { left: '5%' },
       updateOnMove: true,
       pagination: false,
-      drag: true,
-      arrows: false,
+      cloneStatus: false,
+      gap: 50,
+      arrowPositionExtension: {
+        offsetLeft: -30,
+      },
       breakpoints: {
-        [widthXL]: {
-          padding: { right: 'calc(50% + (50% - 540px))' },
-        },
-        [widthLG]: {
-          padding: { right: 'calc(50% + (50% - 520px))' },
-        },
         [widthTab]: {
-          perPage: 1,
-          padding: '30%',
-          autoWidth: false,
-          gap: 30,
+          focus: 'center',
+          padding: { left: '10%', right: '10%' },
+          gap: '15%',
+          arrowPositionExtension: {
+            offsetLeft: -20,
+          },
         },
-      }
-    } );
-
-    splide.on( 'resized', () => {
-      this.adjustArrow()
-    } );
-
-    splide.mount();
-
-    arrowEl.addEventListener('click', function(){
-      splide.go('+1');
+      },
     });
 
-  };
-
-  adjustArrow(){
-    const splideEl = document.querySelector('.splide') as HTMLElement;
-    const arrowEl = document.querySelector('.splide-arrow') as HTMLElement;
-    const activeEl = document.querySelector('.splide__slide.is-active.is-visible');
-    
-    const activeElWidth = activeEl.clientWidth;
-    let splideElWidth = splideEl.clientWidth;
-    const val = splideElWidth * 0.4 + splideElWidth * 0.4 - activeElWidth + 80;
-
-    arrowEl.style.right = `${val}px`;
+    splide.mount({
+      ArrowPositionExtension,
+    });
   }
 
   /**
@@ -229,12 +211,12 @@ class MyFunc {
     function toggleClass() {
       if (!document.body.classList.contains('dwMenu-active')) {
         document.body.classList.add('dwMenu-active');
-        btn.setAttribute('aria-expanded', 'true');
-        gNavi.setAttribute('aria-hidden', 'false');
+        btn?.setAttribute('aria-expanded', 'true');
+        gNavi?.setAttribute('aria-hidden', 'false');
       } else {
         document.body.classList.remove('dwMenu-active');
-        btn.setAttribute('aria-expanded', 'false');
-        gNavi.setAttribute('aria-hidden', 'true');
+        btn?.setAttribute('aria-expanded', 'false');
+        gNavi?.setAttribute('aria-hidden', 'true');
       }
     }
 
@@ -268,10 +250,10 @@ class MyFunc {
 
   numberShowAnimation() {
     const targetEl = document.querySelectorAll('.js-show');
-    gsap.set(targetEl, { 
+    gsap.set(targetEl, {
       opacity: 0,
-      transform: 'matrix(4.02, -1.39, -1.21, 2.26, 315, 139)'
-    })
+      transform: 'matrix(4.02, -1.39, -1.21, 2.26, 315, 139)',
+    });
     targetEl.forEach((el) => {
       gsap.to(el, {
         scrollTrigger: {
@@ -280,8 +262,83 @@ class MyFunc {
         },
         opacity: 1,
         transform: 'matrix(1, 0, 0, 1, 0, 0)',
-        duration: .3,
+        duration: 0.3,
       });
+    });
+  }
+
+  accordion() {
+    const accordion = document.querySelectorAll('.js-accordion');
+
+    let openAnimation = [
+      { height: '0', opacity: '0' },
+      { height: '0', opacity: '1' },
+    ];
+    let closeAnimation = [
+      { height: '0', opacity: '1' },
+      { height: '0', opacity: '0' },
+    ];
+    let animationOption = {
+      duration: 300,
+      fill: 'both',
+      easing: 'ease-in-out',
+    };
+
+    let closeAnimationOption;
+    let openAnimationOption;
+    let accordionFlg = true;
+
+    const accordionToggle = (accordionItem, e?) => {
+      if (accordionFlg) {
+        e.preventDefault(); //summaryだとアニメーションせずにすぐ閉じてしまうので、デフォルトの動きを無効化する
+        accordionFlg = false;
+        let accordionContent = accordionItem.querySelector('.js-accordion-content');
+        let contentHeight;
+
+        if (accordionItem.classList.contains('is-open')) {
+          //閉じる
+          closeAnimation[0]['height'] = contentHeight + 'px';
+          closeAnimationOption = accordionContent.animate(closeAnimation, animationOption);
+          //アニメーションが終わったら
+          closeAnimationOption.finished.then((anim) => {
+            if (anim.playState) {
+              accordionItem.classList.remove('is-open');
+              accordionFlg = true;
+            }
+          });
+          //ボタンのテキストを「開く」に戻す
+          const btn = accordionItem.querySelector('.js-accordion-title');
+          btn.textContent = btn.getAttribute('data-open');
+        } else {
+          //開く
+          accordionItem.open = true;
+          //アコーディオンコンテンツの高さを取得
+          contentHeight = accordionItem.querySelector('.js-accordion-content-inner').clientHeight;
+
+          openAnimation[1]['height'] = contentHeight + 'px';
+          openAnimationOption = accordionContent.animate(openAnimation, animationOption);
+          //アニメーションが終わったら
+          openAnimationOption.finished.then((anim) => {
+            if (anim.playState) {
+              accordionItem.classList.add('is-open');
+              accordionFlg = true;
+            }
+          });
+          //ボタンのテキストを「閉じる」に変更
+          const btn = accordionItem.querySelector('.js-accordion-title');
+          btn.textContent = btn.getAttribute('data-close');
+        }
+      }
+    };
+
+    accordion.forEach((accordionItem) => {
+      const title = accordionItem.querySelector('.js-accordion-title');
+      title.addEventListener('click', (e) => {
+        accordionToggle(accordionItem, e);
+      });
+      if (accordionItem.hasAttribute('open')) {
+        accordionToggle(accordionItem);
+      }
     });
   }
 }
@@ -296,6 +353,7 @@ window.addEventListener('load', function () {
   myFunc.isAndroidBodyClass();
   myFunc.slider();
   myFunc.numberShowAnimation();
+  myFunc.accordion();
 });
 
 // window.addEventListener('resize', function () {

@@ -2,4 +2,34 @@
 
 #container{
   background: url(/img/top/bg-hexagon.svg) 15% -120px / 1769px 2641px ;
+  @include sp{
+    background-image: url(/img/top/bg-hexagon3.svg);
+    background-size: 847px auto;
+    background-position: 406% 0;
+  }
+}
+
+.js-accordion{
+  &-title {
+    cursor: pointer;
+    /* display: list-item;以外を指定してデフォルトの三角形アイコンを消します */
+    transition: all .2s;
+    &::-webkit-details-marker {
+      /* Safariで表示されるデフォルトの三角形アイコンを消します */
+      display: none;
+    }
+  }
+  &-content{
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    &-inner{
+      width: 100%;
+      padding: 10px;
+      @include sp{
+        padding: 0;
+      }
+    }
+  }
 }

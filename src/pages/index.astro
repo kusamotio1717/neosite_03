@@ -7,17 +7,20 @@ import Layout from '@layouts/Layout.astro';
 		<div class="mv">
 			<div class="mvCopy">
 				<h1 class="mvCopy-main">ALL IN ONE,<br>ALL IN <em>NEO</em></h1>
-				<div class="mvCopy-sub">全てを一つに、全てを<em>NEO</em>に</div>
+				<div class="mvCopy-sub">全てを一つに、<br class="for-sp">全てを<em>NEO</em>に</div>
 			</div>	
-			<div class="mv-n3Link">
+			<div class="mvN3Link">
 				<a href="">
-					<img src="/img/top/n3-network.svg" width="100" height="100" alt="N3ネットワークへの移行はこちら">
+					<span class="mvN3Link-mark">
+						<img src="/img/common/logo-mark.svg" width="28" height="34" alt="">
+					</span>
+					<span class="mvN3Link-text">N3ネットワーク<br>への移行はこちら</span>
 				</a>
 			</div>
 		</div>
 		<section class="welcome">
 			<h2 class="welcome-title">ようこそ<em>NEO</em>へ</h2>
-			<div class="welcome-lead">NEOは、コミュニティ主導で開発された<br>オープンソースのブロックチェーンプラットフォームです</div>
+			<div class="welcome-lead">NEOは、コミュニティ主導で<br class="for-sp">開発された<br class="for-pc">オープンソースの<br class="for-sp">ブロックチェーンプラットフォームです</div>
 			<div class="welcome-contents">
 				<div class="welcomeContents">
 					<div class="welcomeContents-des">
@@ -62,7 +65,9 @@ import Layout from '@layouts/Layout.astro';
 							<img src="/img/top/link-1.svg" width="150" height="150" alt="">
 						</div>
 						<div class="progressCard-main">Technology</div>
-						<span class="progressCard-more">さらに詳しく→</span>
+						<span class="progressCard-more">
+							<span class="progressCard-more-text">さらに詳しく→</span>
+						</span>
 					</a>
 				</div>
 				<div class="progressCard">
@@ -71,7 +76,9 @@ import Layout from '@layouts/Layout.astro';
 							<img src="/img/top/link-2.svg" width="150" height="150" alt="">
 						</div>
 						<div class="progressCard-main">Community</div>
-						<span class="progressCard-more">さらに詳しく→</span>
+						<span class="progressCard-more">
+							<span class="progressCard-more-text">さらに詳しく→</span>
+						</span>
 					</a>
 				</div>
 				<div class="progressCard">
@@ -80,7 +87,9 @@ import Layout from '@layouts/Layout.astro';
 							<img src="/img/top/link-3.svg" width="150" height="150" alt="">
 						</div>
 						<div class="progressCard-main">Token</div>
-						<span class="progressCard-more">さらに詳しく→</span>
+						<span class="progressCard-more">
+							<span class="progressCard-more-text">さらに詳しく→</span>
+						</span>
 					</a>
 				</div>
 				<div class="progressCard">
@@ -89,7 +98,9 @@ import Layout from '@layouts/Layout.astro';
 							<img src="/img/top/link-4.svg" width="150" height="150" alt="">
 						</div>
 						<div class="progressCard-main">Philosophy</div>
-						<span class="progressCard-more">さらに詳しく→</span>
+						<span class="progressCard-more">
+							<span class="progressCard-more-text">さらに詳しく→</span>
+						</span>
 					</a>
 				</div>
 			</div>
@@ -97,8 +108,10 @@ import Layout from '@layouts/Layout.astro';
 		<section id="technology" class="technology">
 			<div class="technologySummary">
 				<div class="technologySummary-titleArea">
-					<h2 class="technologySummary-titleArea-main">TECHNOLOGY</h2>
-					<div class="technologySummary-titleArea-sub"><em>NEO</em>のテクノロジー</div>
+				<div class="technologySummary-titleArea-title">
+					<h2 class="technologySummary-titleArea-title-main">TECHNOLOGY</h2>
+					<div class="technologySummary-titleArea-title-sub"><em>NEO</em>のテクノロジー</div>
+				</div>
 					<div class="technologySummary-titleArea-text">
 						<p>ネイティブ機能は、分散型アプリケーションを構築するために必要な全てのインフラストラクチャを提供し、高度な相互運用性により、グローバルブロックチェーンエコシステムの力を活用できます。</p>
 					</div>
@@ -116,7 +129,7 @@ import Layout from '@layouts/Layout.astro';
 			<div class="tecPanelsSlider splide">
 				<div class="tecPanelsSlider-track splide__track">
 					<div class="tecPanelsSlider-list splide__list">
-						<div class="splide__slide is-active is-visible">
+						<div class="splide__slide">
 							<section class="tecPanel">
 								<div class="tecPanel-img">
 									<img src="/img/top/tex-7.svg" width="118" height="136" alt="">
@@ -188,14 +201,20 @@ import Layout from '@layouts/Layout.astro';
 						</div>
 					</div>
 				</div>
-				<div class="tecPanelsSlider-next splide-arrow">
-					<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="80" cy="80" r="61" fill="#00E599" fill-opacity="0.7"/>
-					<path d="M101.124 79.566V79.7799L61.1212 100.423L59.4634 97.1608L93.4228 79.7799V79.6195L59.4634 62.2387L61.1212 58.9764L101.124 79.566Z" fill="white"/>
-					</svg>
+				<div class="splide__arrows">
+					<!-- Prevは今回いらないが、HTMLを消すと機能しなくなるのでCSSで消す -->
+					<button class="tecPanelsSlider-prev splide__arrow--prev">
+						Prev
+					</button>
+					<button class="tecPanelsSlider-next splide-arrow splide__arrow--next" aria-label="次のスライドへ">
+						<svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="80" cy="80" r="61" fill="#00E599" fill-opacity="0.7"/>
+						<path d="M101.124 79.566V79.7799L61.1212 100.423L59.4634 97.1608L93.4228 79.7799V79.6195L59.4634 62.2387L61.1212 58.9764L101.124 79.566Z" fill="white"/>
+						</svg>
+					</button>
 				</div>
 			</div>
-			<div class="btnCenter">
+			<div class="btnCenter section-center-sp">
 				<a href="" class="btn-simple is-outlink">詳しくはこちら</a>
 			</div>
 		</section>
@@ -244,29 +263,35 @@ import Layout from '@layouts/Layout.astro';
 					</div>
 				</div>
 			</div>
-			<div class="btnCenter">
+			<div class="btnCenter section-center-sp">
 				<a href="" class="btn-simple is-outlink">詳しくはこちら</a>
 			</div>
 		</section>
 		<section id="token" class="dualToken">
-			<div class="dualTokenContent">
-				<h2 class="dualTokenContent-title">
-					<span class="dualTokenContent-title-en">DUAL TOKEN</span>
-					<span class="dualTokenContent-title-ja">ガス&amp;トークンモデル</span>
-				</h2>
-				<div class="dualTokenContent-subCopy">
-					テキストテキストテキストテキストテキストテキストテキストテキスト
+			<div class="dualToken-inner">
+				<div class="dualTokenContent">
+					<h2 class="dualTokenContent-title">
+						<span class="dualTokenContent-title-en">DUAL TOKEN</span>
+						<span class="dualTokenContent-title-ja">ガス&amp;トークンモデル</span>
+					</h2>
+					<div class="dualTokenContent-subCopy">
+						Neo には、ガバナンスとユーティリティを分離する独自のデュアルトークン モデルがあります。
+					</div>
+					<div class="dualTokenContent-text">
+						<p>NEO トークン所有者はネットワークの所有者であり、ガバナンスに参加できます。 NEO 保有者は、ネットワーク ユーティリティ トークンである GAS の受動的な配布も受け取ります - ステーキングは必要ありません。投票に参加すると GAS の報酬が増加します。<br>GAS は、ネットワーク料金、スマート コントラクトの展開、および dApp の購入の支払いに使用されます。</p>
+					</div>
+					<div class="dualTokenContent-btns for-pc">
+						<a href="" class="btn-simple is-outlink">トークンについての詳細はこちら</a>
+						<a href="" class="btn-simple is-green is-outlink">ガスについての詳細はこちらから</a>
+					</div>
 				</div>
-				<div class="dualTokenContent-text">
-					<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-				</div>
-				<div class="dualTokenContent-btns">
-					<a href="" class="btn-simple is-outlink">トークンについての詳細はこちら</a>
-					<a href="" class="btn-simple is-green is-outlink">ガスについての詳細はこちらから</a>
+				<div class="dualToken-img">
+					<img src="/img/top/img-data@2x.webp" alt="" width="495" height="541">
 				</div>
 			</div>
-			<div class="dualToken-img">
-				<img src="/img/top/img-data@2x.webp" alt="" width="495" height="541">
+			<div class="dualTokenContent-btns for-sp">
+				<a href="" class="btn-simple is-outlink">トークンについての詳細はこちら</a>
+				<a href="" class="btn-simple is-green is-outlink">ガスについての詳細はこちらから</a>
 			</div>
 		</section>
 		<section id="philosophy" class="philosophy">
@@ -285,29 +310,95 @@ import Layout from '@layouts/Layout.astro';
 				</div>
 			</dl>
 		</section>
+		<section class="news">
+			<h2 class="philosophy-title">
+				<span class="philosophy-title-sub">お知らせ</span>
+				<span class="philosophy-title-main">NEWS</span>
+			</h2>
+			<div class="newsContents-grid">
+				<div class="newsContents">
+					<a href="">
+						<div class="newsContents-img">
+							<img src="/img/common/news-img.png" width="330" height="185" alt="">
+						</div>
+						<time class="newsContents-date" datetime="2024-03-10">2024.3.10</time>
+						<div class="newsContents-title">タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</div>
+					</a>
+				</div>
+				<div class="newsContents">
+					<a href="">
+						<div class="newsContents-img">
+							<img src="/img/common/news-img.png" width="330" height="185" alt="">
+						</div>
+						<time class="newsContents-date" datetime="2024-03-10">2024.3.10</time>
+						<div class="newsContents-title">タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</div>
+					</a>
+				</div>
+				<div class="newsContents">
+					<a href="">
+						<div class="newsContents-img">
+							<img src="/img/common/news-img.png" width="330" height="185" alt="">
+						</div>
+						<time class="newsContents-date" datetime="2024-03-10">2024.3.10</time>
+						<div class="newsContents-title">タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</div>
+					</a>
+				</div>
+			</div>
+			<div class="js-accordion">
+				<div class="js-accordion-content">
+					<div class="js-accordion-content-inner">
+						<div class="newsContents-grid">
+							<div class="newsContents">
+								<a href="">
+									<div class="newsContents-img">
+										<img src="/img/common/news-img.png" width="330" height="185" alt="">
+									</div>
+									<time class="newsContents-date" datetime="2024-03-10">2024.3.10</time>
+									<div class="newsContents-title">タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</div>
+								</a>
+							</div>
+							<div class="newsContents">
+								<a href="">
+									<div class="newsContents-img">
+										<img src="/img/common/news-img.png" width="330" height="185" alt="">
+									</div>
+									<time class="newsContents-date" datetime="2024-03-10">2024.3.10</time>
+									<div class="newsContents-title">タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="newsMore btnCenter section-center-sp">
+					<span class="btn-simple is-tobottom js-accordion-title" data-open="もっと見る" data-close="一部の表示に戻す">もっと見る</span>
+				</div>
+			</div>
+		</section>
 		<aside class="asideContents">
-			<section class="alphaPanel">
-				<h2 class="alphaPanel-title">
-					<span class="alphaPanel-title-main">ECOSYSTEM</span>
-					<span class="alphaPanel-title-sub">エコシステムの検索はこちら</span>
-				</h2>
-				<div class="alphaPanel-ndapp">
-					<img src="/img/top/n-dapp.svg" width="182" height="50" alt="N/DAPP">
-				</div>
-			</section>
-			<section class="alphaPanel">
-				<h2 class="alphaPanel-title">
-					<span class="alphaPanel-title-main">PARTNERS</span>
-					<span class="alphaPanel-title-sub">協賛パートナー様</span>
-				</h2>
-				<div class="alphaPanel-partners">
-					<div class="alphaPanel-partners-item"><img src="/img/top/partner-1@2x.webp" width="140" height="49" alt="InterWork Alliance"></div>
-					<div class="alphaPanel-partners-item"><img src="/img/top/partner-2@2x.webp" width="140" height="49" alt="Blockchain-based Service Network"></div>
-					<div class="alphaPanel-partners-item"><img src="/img/top/partner-3@2x.webp" width="140" height="49" alt="PolyNetwork"></div>
-					<div class="alphaPanel-partners-item"><img src="/img/top/partner-4@2x.webp" width="140" height="49" alt="IEEE"></div>
-					<div class="alphaPanel-partners-item"><img src="/img/top/partner-5@2x.webp" width="140" height="49" alt="NET foundation"></div>
-				</div>
-			</section>
+			<div class="asideContents-inner">
+				<section class="alphaPanel">
+					<h2 class="alphaPanel-title">
+						<span class="alphaPanel-title-main">ECOSYSTEM</span>
+						<span class="alphaPanel-title-sub">エコシステムの<br class="for-sp">検索はこちら</span>
+					</h2>
+					<div class="alphaPanel-ndapp">
+						<img src="/img/top/n-dapp.svg" width="182" height="50" alt="N/DAPP">
+					</div>
+				</section>
+				<section class="alphaPanel">
+					<h2 class="alphaPanel-title">
+						<span class="alphaPanel-title-main">PARTNERS</span>
+						<span class="alphaPanel-title-sub">協賛パートナー様</span>
+					</h2>
+					<div class="alphaPanel-partners">
+						<div class="alphaPanel-partners-item"><img src="/img/top/partner-1@2x.webp" width="140" height="49" alt="InterWork Alliance"></div>
+						<div class="alphaPanel-partners-item"><img src="/img/top/partner-2@2x.webp" width="140" height="49" alt="Blockchain-based Service Network"></div>
+						<div class="alphaPanel-partners-item"><img src="/img/top/partner-3@2x.webp" width="140" height="49" alt="PolyNetwork"></div>
+						<div class="alphaPanel-partners-item"><img src="/img/top/partner-4@2x.webp" width="140" height="49" alt="IEEE"></div>
+						<div class="alphaPanel-partners-item"><img src="/img/top/partner-5@2x.webp" width="140" height="49" alt="NET foundation"></div>
+					</div>
+				</section>
+			</div>
 		</aside>
 	</main>
 </Layout>

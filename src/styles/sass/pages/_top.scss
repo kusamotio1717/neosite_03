@@ -10,16 +10,59 @@
   min-height: 758px;  
   color: #fff;
   z-index: 2;
-  &-n3Link{
-    position: fixed;
-    bottom: 270px;
-    right: 4%;
-    z-index: 1;
-    @include tab{
-      right: 2%;
+  @include sp{
+    height: 86vh;
+    min-height: auto;
+    justify-content: flex-start;
+    padding: 10% 0 0 12%;
+  }
+}
+
+.mvN3Link{
+  position: fixed;
+  bottom: 270px;
+  right: 4%;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  @include tab{
+    right: 2%;
+  }
+  @include sp{
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+  }
+  a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50%;
+    color: var(--fontColor);
+    @include sp{
+      flex-direction: row;
+      height: 80px;
+      gap: 10px;
+      border-radius: 50px;
+    }
+  }
+  &-mark{
+    display: block;
+    width: 28px;
+    height: 34px;
+  }
+  &-text{
+    font-weight: bold;
+    font-size: 1rem;
+    @include pc-tab{
+      transform: scale(.9);
     }
     @include sp{
-      bottom: 10px;
+      font-size: 1.2rem;
     }
   }
 }
@@ -30,6 +73,9 @@
     font-size: min(12.8rem , 12vw);
     font-weight: 800;
     line-height: .9;
+    @include sp{
+      line-height: 1.2;
+    }
     em{
       color: var(--themeColor);
     }
@@ -37,8 +83,16 @@
   &-sub{
     font-size: min(3.6rem , 3.5vw);
     font-weight: bold;
+    @include sp{
+      margin-top: 20px;
+      font-size: 7.6vw;
+    }
     em{
       color: var(--themeColor);
+      @include sp{
+        margin: 0 10px;
+        font-size: 120%;
+      }
     }
   }
 }
@@ -52,24 +106,51 @@
   @include tab{
     padding: 40px 5%;
   }
+  @include sp{
+    padding: 40px 0;
+    @include section-center-sp;
+  }
   &-title{
     margin-bottom: 15px;
     font-size: min(8rem , 7vw);
     font-weight: 800;
     text-align: center;
+    @include sp{
+      font-size: 3.2rem;
+      font-weight: 800;
+    }
     em{
       margin: 0 20px;
       color: var(--themeColor);
       font-size: min(9rem , 8vw);
+      @include sp{
+        font-size: 3.2rem;
+        margin: 0;
+      }
     }
   }
   &-lead{
+    position: relative;
     margin-bottom:60px;
+    padding-bottom: 30px;
     font-size: min(3.6rem , 3.1vw);
     font-weight: 800;
     text-align: center;
     line-height: 1.35;
     @include font-nunito;
+    @include sp{
+      font-size: 1.6rem;
+      &::after{
+        content:'';
+        display: block;
+        height: 1px;
+        width: 80%;
+        position: absolute;
+        left: 10%;
+        bottom: 0;
+        background: var(--fontColor);
+      }
+    }
   }
 }
 
@@ -78,6 +159,9 @@
   justify-content: center;
   @include md-tab{
     justify-content: flex-start;
+  }
+  @include sp{
+    flex-direction: column;
   }
   &-des{
     border-right: 1px solid var(--fontColor);
@@ -101,9 +185,15 @@
   }
   &-num{
     padding-left: 40px;
+    @include sp{
+      padding-left: 22%;
+    }
     &-item{
       & + &{
         margin-top: 25px;
+        @include sp{
+          margin-top: 40px;
+        }
       }
       &-main{
         display: block;
@@ -111,6 +201,9 @@
         font-weight: 800;
         color: var(--themeColor);
         line-height: .75;
+        @include sp{
+          font-size: 21vw;
+        }
       }
       &-sub{
         display: flex;
@@ -119,9 +212,17 @@
         font-size: min(4.8rem , 4.2vw);
         font-weight: 800;
         line-height: 1.35;
+        @include sp{
+          margin: 0 auto;
+          font-size: 3.2rem;
+        }
         &-icon{
           display: flex;
           align-items: center;
+          @include sp{
+            width: .9em;
+            min-width: .9em;
+          }
         }
       }
     }
@@ -132,11 +233,19 @@
   margin-top: 220px;
   padding-bottom: 200px;
   color: #fff;
+  @include sp{
+    margin-top: 80px;
+    padding-bottom: 80px;
+  }
   &-title{
     margin-bottom: 10px;
     text-align: center;
     font-size: min(8rem , 7vw);
     font-weight: 800;
+    @include sp{
+      margin-bottom: 20px;
+      font-size: 3.2rem;
+    }
     em{
       color: var(--themeColor);
       font-size: min(9rem , 8.5vw);
@@ -147,8 +256,16 @@
     text-align: center;
     font-weight: 600;
     font-size: min(2.4rem , 2.2vw);
+    @include sp{
+      font-size: 1.6rem;
+      text-align: left;
+      padding-inline: 7%;
+    }
     p{
       line-height: 1.2;
+      @include sp{
+        line-height: 1.4;
+      }
     }
   }
 }
@@ -168,6 +285,7 @@
   }
   @include sp{
     flex-direction: column;
+    margin-top: 60px;
   }
 }
 
@@ -181,6 +299,11 @@
   height: 310px;
   @include tab{
     margin: 0 auto;
+  }
+  @include sp{
+    width: 86%;
+    margin: 0 auto;
+    height: 108px;
   }
   &::before, &::after{
     content:'';
@@ -223,12 +346,23 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    @include sp{
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 8% 10px 8%;
+    }
   }
   &-illust{
     width: 150px;
     height: 150px;
     margin-bottom: 10px;
     transition: all .3s;
+    @include sp{
+      width: 60px;
+      height: auto;
+      margin-top: 10px;
+      order: 2;
+    }
     @include hover{
       a:hover &{
         transform: translateY(10px);
@@ -241,6 +375,10 @@
     font-weight: 800;
     color: var(--fontColor);
     transition: all .3s;
+    @include sp{
+      margin-bottom: 0;
+      font-size: 2.6rem;
+    }
     @include hover{
       a:hover &{
         color: #fff;
@@ -250,6 +388,26 @@
   &-more{
     font-size: 2rem;
     font-weight: 800;
+    &-text{
+      @include sp{
+        display: none;
+      }
+    }
+    &::before{
+      content:'';
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      top: calc(50% - 11px);
+      right: 90px;
+      display: block;
+      background: url(/img/common/icon-arrow.svg) no-repeat;
+      background-size: contain;
+      margin-right: 10px;
+      @include pc-tab{
+        display: none;
+      }
+    }
   }
 }
 
@@ -259,6 +417,10 @@
   background: #fff;
   @include tab{
     padding-top: 100px;
+  }
+  @include sp{
+    padding-top: 60px;
+    overflow: hidden;
   }
 }
 
@@ -270,28 +432,58 @@
     gap: 40px;
   }
   @include sp{
+    @include section-center-sp;
     flex-direction: column;
+    gap: 0;
   }
   &-titleArea{
     flex:1;
     margin-bottom: 80px;
-    &-main{
-      line-height: 1;
-      font-size: min(8rem , 7vw);
-      font-weight: 800;
+    @include sp{
+      margin-bottom: 40px;
     }
-    &-sub{
-      font-size: 3.2rem;
-      font-weight: 800;
-      em{
-        margin-right: 10px;
-        color: var(--themeColor);
-        font-size: 3.6rem;
+    &-title{
+      @include sp{
+        display: flex;
+        flex-direction: column;
+      }
+      &-main{
+        line-height: 1;
+        font-size: min(8rem , 7vw);
+        font-weight: 800;
+        @include sp{
+          order:2;
+          text-align: center;
+          font-size: 4rem;
+        }
+      }
+      &-sub{
+        font-size: 3.2rem;
+        font-weight: 800;
+        @include sp{
+          order:1;
+          font-size: 1.6rem;
+          text-align: center;
+        }
+        em{
+          margin-right: 10px;
+          color: var(--themeColor);
+          font-size: 3.6rem;
+          @include sp{
+            font-size: 1.6rem;
+            margin-right: 4px;
+          }
+        }
       }
     }
     &-text{
       margin-top: 40px;
       font-size: 2rem;
+      @include sp{
+        margin-top: 30px;
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
       p{
         line-height: 1.4;
       }
@@ -308,7 +500,16 @@
     grid-template-columns: repeat(3, 1fr);
   }
   @include sp{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
     gap: 0;
+    margin-bottom: 20px;
+  }
+  &-item{
+    @include sp{
+      width: 25%;
+    }
   }
 }
 
@@ -320,31 +521,32 @@
     }
   }
   .splide__slide{
-    padding-inline: 25px;
-    &.is-active{
-      padding-inline: 88px;
+    width: fit-content !important;//autoWidthはレスポンシブに対応していないので上書き
+    &.is-active:not(.splide__slide--clone){
+      padding-inline: 60px;
       @include sp{
-        padding-inline: 0;
+        padding-inline: 20px;
       }
     }
   }
+  &-prev{
+    display: none;
+  }
   &-next{
+    appearance: none;
     position: absolute;
     top: 50%;
+    width: 160px;
+    height: 160px;
+    background: none;
+    border: none;
     aspect-ratio: 0.94;
     z-index: 1;
     cursor: pointer;
+    border: none;
+    background: none;
     transform: translate(-50% , -50%);  
-    @include md{
-      right: auto !important;//js上書き
-      left: calc(5% + 424.2px);
-    }
-    @include tab{
-      right: auto !important;//js上書き
-      left: calc(5% + 424.2px);
-    }
     @include sp{
-      right: auto !important;//js上書き
       left: 80%;
       width: 78px;
     }
@@ -378,7 +580,7 @@
     width: auto;
     padding: 20px 20px;
   }
-  .splide__slide.is-active &{
+  .splide__slide.is-active:not(.splide__slide--clone) &{
     transform: scale(1.4);
   }
   &-img{
@@ -412,11 +614,18 @@
 .btnCenter{
   margin-top: 40px;
   text-align: center;
+  @include sp{
+    margin-top: 30px;
+  }
 }
 
 .community{
   padding-top: 110px;
   margin-bottom: 150px;
+  @include sp{
+    padding-top: 40px;
+    margin-bottom: 60px;
+  }
 }
 
 .communitySummary{
@@ -427,6 +636,7 @@
   @include section-center;
   @include sp{
     display: block;
+    @include section-center-sp;
   }
   &-img{
     width: min(45% , 590px);
@@ -450,21 +660,35 @@
   color: #fff;
   &-title{
     margin-bottom: 35px;
+    @include sp{
+      text-align: center;
+      margin-bottom: 25px;
+    }
     &-en{
       display: block;
       margin-bottom: 5px;
       font-size: min(8rem , 7vw);
       font-weight: 800;
       line-height: 1;
+      @include sp{
+        font-size: 3.8rem;
+      }
     }
     &-ja{
       font-size: min(3.2rem , 3vw);
       font-weight: 800;
       color: var(--themeColor);
+      @include sp{
+        font-size: 1.4rem;
+      }
     }
   }
   &-text{
     font-size: 2rem;
+    @include sp{
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
     p{
       line-height: 1.4;
     }
@@ -486,17 +710,25 @@
   @include tab{
     padding-block: 10px 30px;
   }
+  @include sp{
+    @include section-center-sp;
+    padding: 30px 0 40px 70px;
+  }
 }
 
+$communityFlowTop: 100px;
 .communityFlow{
   position: relative;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  @include sp{
+    flex-direction: column;
+  }
   &::before{
     content:'';
     position: absolute;
-    top: 100px;
+    top: $communityFlowTop;
     left: 0;
     right: 0;
     width: 60%;
@@ -506,10 +738,45 @@
     @include md-tab{
       left: -2%;
     }
+    @include sp{
+      display: none;
+    }
   }
   &-item{
     position: relative;
     width: 100%;
+    @include sp{
+      margin-bottom: 10px;
+      &::before{
+        content:'';
+        position: absolute;
+        top: $communityFlowTop;
+        left: -10%;
+        width: 2px;
+        height: 100%;
+        margin: auto;
+        background: var(--themeColor);
+        @include pc-tab{
+          display: none;
+        }
+      }
+      &:last-child::before{
+        display: none;
+      }
+      &::after{
+        content:'';
+        position: absolute;
+        top: 96px;
+        left: calc(-10% - 6px);
+        width: calc(10% + 6px);
+        height: 14px;
+        margin: auto;
+        background: url(/img/common/line-pointer.svg) center center / cover no-repeat;
+        @include pc-tab{
+          display: none;
+        }
+      }
+    }
     &-img{
       display: flex;
       align-items: center;
@@ -517,6 +784,10 @@
       height: 220px;
       margin-right: 11%;
       margin-bottom: 5px;
+      @include sp{
+        height: auto;
+        margin-right: 0;
+      }
     }
     &-text{
       width: 80%;
@@ -532,34 +803,54 @@
 .dualToken{
   @include section-center;
   margin-bottom: 180px;
-  padding: 90px 70px 80px 100px;
-  background: #fff;
-  max-width: 1252px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  border-radius: 20px;
-  @include md-tab{
-    padding-inline: 5% 3%;
+  @include sp{
+    margin-bottom: 60px;
+  }
+  &-inner{
+    padding: 90px 70px 80px 100px;
+    background: #fff;
+    max-width: 1252px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: 20px;
+    @include md-tab{
+      padding-inline: 5% 3%;
+    }
+    @include sp{
+      flex-direction: column;
+      padding: 40px 7%;
+      @include section-center-sp;
+    }
   }
 }
 
 .dualTokenContent{
   width: 520px;
+  max-width: 100%;
   &-title{
     margin-bottom: 20px;
+    @include sp{
+      text-align: center;
+    }
     &-en{
       display: block;
       margin-bottom: 5px;
       font-size: min(8rem , 7vw);
       font-weight: bold;
       line-height: 1;
+      @include sp{
+        font-size: 3.8rem;
+      }
     }
     &-ja{
       display: block;
       font-size: min(3.2rem , 3vw);
       color: var(--themeColor);
       font-weight: 800;
+      @include sp{
+        font-size: 1.6rem;
+      }
     }
   }
   &-subCopy{
@@ -567,15 +858,27 @@
     font-size: min(2.2rem , 2vw);
     font-weight: bold;
     line-height: 1.2;
+    @include sp{
+      text-align: center;
+      font-size: 1.6rem;
+    }
   }
   &-text{
-    margin-bottom: 40px;
-    font-size: min(2rem , 1.8vw);
+    margin-bottom: 25px;
+    font-size: min(1.6rem , 1.8vw);
+    @include sp{
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
     p{
       line-height: 1.4;
     }
   }
   &-btns{
+    @include sp{
+      @include section-center-sp;
+      margin-top: 20px;
+    }
     a{
       @include tab{
         font-size: 1.5rem;
@@ -593,28 +896,44 @@
   max-width: 1252px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
+  margin-bottom: 60px;
   padding: 100px 100px 80px;
   color: #fff;
   @include md-tab{
     padding: 100px 5% 80px;
+  }
+  @include sp{
+    @include section-center-sp;
+    padding: 60px 7% 40px;
   }
   &-title{
     margin-bottom: 60px;
     font-size: min(8rem , 7vw);
     font-weight: 800;
     text-align: center;
+    @include sp{
+      margin-bottom: 50px;
+    }
     em{
+      margin-bottom: 4px;
       color: var(--themeColor);
     }
     &-main{
       display: block;
       margin-bottom: 10px;
       line-height: 1;
+      @include sp{
+        margin-bottom: 0;
+        font-size: 4rem;
+      }
     }
     &-sub{
       display: block;
       font-size: 3.2rem;
       font-weight: 800;
+      @include sp{
+        font-size: 1.6rem;
+      }
     }
   }
 }
@@ -639,6 +958,9 @@
       @include tab{
         margin-top: 60px;
       }
+      @include sp{
+        margin-top: 40px;
+      }
     }
     &-title{
       width: 400px;
@@ -661,6 +983,10 @@
       }
       @include sp{
         width: auto;
+        font-size: 3.2rem;
+        border-right: 0;
+        margin-bottom: 20px;
+        padding-right: 0;
       }
     }
     &-text{
@@ -672,16 +998,114 @@
       @include tab{
         text-align: center;
       }
+      @include sp{
+        padding-left: 0;
+        text-align: center;
+        font-size: 1.6rem;
+      }
     }
   }
 }
 
-.asideContents{
-  margin-top: 140px;
+.news{
+  background: #fff;
+  padding: 100px 0 140px;
+  @include tab{
+    padding: 60px 0 ;
+  }
+  @include sp{
+    padding: 60px 0 60px;
+  }
+}
+
+.newsContents-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+  margin-bottom: 40px;
   @include section-center;
-  max-width: 1252px;
-  display: flex;
-  justify-content: space-between;
+  @include sp{
+    @include section-center-sp;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+.newsContents{
+  border-radius: 10px;
+  background: #F0F5F6;
+  padding: 24px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  a{
+    color: var(--fontColor);
+  }
+  &-img{
+    margin-bottom: 20px;
+    aspect-ratio: 1.778;
+    overflow: hidden;
+    @include tab{
+      margin-bottom: 10px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      transition: all .8s;
+      @include hover{
+        a:hover &{
+          opacity: 1;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+  &-date{
+    display: block;
+    margin-bottom: 10px;
+    font-size: min(2rem , 1.7vw);
+    font-weight: bold;
+    @include sp{
+      font-size: 1.6rem;
+    }
+  }
+  &-title{
+    font-size: min(2rem , 1.7vw);
+    font-weight: bold;
+    line-height: 1.8;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    @include tab{
+      line-height: 1.3;
+    }
+    @include sp{
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.newsMore{
+  @include sp{
+    margin-top: 0;
+  }
+}
+
+.asideContents{
+  background: linear-gradient(90deg, #041c48 , #20ab76);
+  &-inner{
+    padding-block: 100px 90px;
+    @include section-center;
+    max-width: 1252px;
+    display: flex;
+    justify-content: space-between;
+    @include sp{
+      @include section-center-sp;
+      flex-direction: column;
+      gap: 30px;
+      padding-block: 60px;
+    }
+  }
 }
 
 .alphaPanel{
@@ -689,6 +1113,11 @@
   border-radius: 20px;
   padding: 70px 5%;
   background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  @include sp{
+    width: 100%;
+    padding: 40px 7%;
+  }
   &-title{
     margin-bottom: 30px;
     font-size: min(4.8rem , 4.5vw);
@@ -698,6 +1127,10 @@
       display: block;
       margin-bottom: 5px;
       line-height: 1;
+      @include sp{
+        margin-bottom: 30px;
+        font-size: 3.8rem;
+      }
     }
     &-sub{
       display: block;
@@ -708,6 +1141,10 @@
   &-ndapp{
     text-align: center;
     margin-top: 80px;
+    @include sp{
+      width: 122px;
+      margin: 30px auto 0;
+    }
   }
   &-partners{
     display: grid;

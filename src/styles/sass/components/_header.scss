@@ -4,6 +4,7 @@
   @include sp{
     position: fixed;
     top: 0;
+    width: 100%;
     z-index: 4;
   }
   &-inner{
@@ -19,7 +20,7 @@
     }
     @include sp{
       height: auto;
-      padding: 34px 40px;
+      padding: 34px 10%;
     }
   }
   &-logo{
