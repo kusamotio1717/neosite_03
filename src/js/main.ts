@@ -439,27 +439,28 @@ class MyFunc {
 
   changeToolFilterType() {
     let isChange = false;
-    let type = 'ul';
+    let type: 'ul' | 'select' = 'ul';
     const widthLG = this.getMediaQuery().widthLG;
     if (widthLG > window.innerWidth) {
       type = 'select';
     }
     if (toolkitFilterType !== type) {
       isChange = true;
-      type = toolkitFilterType;
+      toolkitFilterType = type;
+      this.convertSelect(type);
+      this.toolkitFilter();
     }
     return { type, isChange };
   }
 
   // ulをselectに変換
-  convertSelect() {
-    const widthLG = this.getMediaQuery().widthLG;
+  convertSelect(type) {
     const jsConvert = document.querySelector('.js-convert');
     if (!jsConvert) {
       return false;
     }
     const jsConvertUl = jsConvert?.querySelector('.js-convert-ul');
-    if (widthLG > window.innerWidth) {
+    if (type === 'select') {
       const selectEl = document.querySelector('.js-converted-select');
       if (selectEl) {
         return false;
@@ -554,7 +555,7 @@ window.addEventListener('load', function () {
   myFunc.accordion();
   myFunc.tabChange();
   myFunc.sliderAuto();
-  myFunc.convertSelect();
+  myFunc.changeToolFilterType();
   myFunc.toolkitFilter();
 });
 

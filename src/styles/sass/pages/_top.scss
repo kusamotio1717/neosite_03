@@ -634,7 +634,7 @@
 }
 
 .community{
-  padding-top: 110px;
+  padding-top: 140px;
   margin-bottom: 150px;
   @include sp{
     padding-top: 40px;
@@ -1105,6 +1105,11 @@ $communityFlowTop: 100px;
   }
   .btn-simple{
     display: inline-flex;
+    .is-open &{
+      &::before, &::after{
+        transform: rotate(180deg);
+      }
+    }
   }
 }
 
