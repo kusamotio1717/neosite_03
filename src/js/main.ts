@@ -85,10 +85,11 @@ class MyFunc {
       breakpoints: {
         [widthTab]: {
           focus: 'center',
-          padding: { left: '10%', right: '10%' },
-          gap: '15%',
+          padding: { left: '7%', right: '7%' },
+          gap: '16px',
           arrowPositionExtension: {
-            offsetLeft: -20,
+            disable: true,
+            offsetLeft: 0,
           },
         },
       },

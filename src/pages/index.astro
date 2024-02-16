@@ -202,9 +202,11 @@ import Layout from '@layouts/Layout.astro';
 					</div>
 				</div>
 				<div class="splide__arrows">
-					<!-- Prevは今回いらないが、HTMLを消すと機能しなくなるのでCSSで消す -->
-					<button class="tecPanelsSlider-prev splide__arrow--prev">
-						Prev
+					<button class="tecPanelsSlider-prev splide__arrow--prev" aria-label="前のスライドへ">
+						<svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="80" cy="80" r="61" fill="#00E599" fill-opacity="0.7"/>
+						<path d="M101.124 79.566V79.7799L61.1212 100.423L59.4634 97.1608L93.4228 79.7799V79.6195L59.4634 62.2387L61.1212 58.9764L101.124 79.566Z" fill="white"/>
+						</svg>
 					</button>
 					<button class="tecPanelsSlider-next splide-arrow splide__arrow--next" aria-label="次のスライドへ">
 						<svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">

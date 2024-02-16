@@ -89,7 +89,7 @@
     padding: 40px 5%;
   }
   @include sp{
-    padding: 40px 0;
+    padding: 40px 0 60px;
     @include section-center-sp;
   }
   &-lead{
@@ -102,6 +102,7 @@
     line-height: 1.35;
     @include font-nunito;
     @include sp{
+      margin-bottom: 40px;
       font-size: 1.6rem;
       &::after{
         content:'';
@@ -129,18 +130,43 @@
   &-des{
     border-right: 1px solid var(--fontColor);
     padding-right: 40px;
+    @include sp{
+      position: relative;
+      order: 2;
+      margin-top: 30px;
+      padding-top: 30px;
+      border: none;
+      &::after{
+        content:'';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 10%;
+        height: 1px;
+        width: 80%;
+        background: #000;
+      }
+    }
     &-en{
       margin-bottom: 30px;
       font-size: min(6.4rem , 5.2vw);
       font-weight: bold;
       line-height: .9;
       text-align: right;
+      @include sp{
+        margin-bottom: 20px;
+        font-size: 3.2rem;
+      }
     }
     &-text{
       margin-bottom: 40px;
       font-weight: bold;
       font-size: min(3.6rem , 3.1vw);
       text-align: right;
+      @include sp{
+        margin-bottom: 30px;
+        font-size: 2.4rem;
+      }
     }
     &-github{
       text-align: right;
@@ -480,7 +506,7 @@
   &-track{
     padding-block: 80px 90px;
     @include sp{
-      padding-block: 80px 0;
+      padding-block: 0;
     }
   }
   .splide__slide{
@@ -488,46 +514,62 @@
     &.is-active:not(.splide__slide--clone){
       padding-inline: 60px;
       @include sp{
-        padding-inline: 20px;
+        padding-inline: 0;
+      }
+    }
+  }
+  .splide__arrows{
+    button{
+      appearance: none;
+      position: absolute;
+      top: 50%;
+      width: 160px;
+      height: 160px;
+      background: none;
+      border: none;
+      aspect-ratio: 0.94;
+      z-index: 1;
+      cursor: pointer;
+      border: none;
+      background: none;
+      @include pc-tab{
+        transform: translate(-50% , -50%);  
+      }
+      @include sp{
+        top: calc(50% - 39px);
+        width: 78px;
+        height: 78px;
+      }
+      svg{
+        transition: all .3s;
+        @include sp{
+          width: 100%;
+          height: 100%;
+        }
+        @include hover{
+          &:hover{
+            transform: scale(1.2);
+            circle{
+              transition: fill-opacity .5s;
+              fill-opacity: 1;
+            }
+          }
+        }
       }
     }
   }
   &-prev{
-    display: none;
+    @include pc-tab{
+      display: none;
+    }
+    @include sp{
+      right: 82%;
+      left: auto;
+    }
   }
   &-next{
-    appearance: none;
-    position: absolute;
-    top: 50%;
-    width: 160px;
-    height: 160px;
-    background: none;
-    border: none;
-    aspect-ratio: 0.94;
-    z-index: 1;
-    cursor: pointer;
-    border: none;
-    background: none;
-    transform: translate(-50% , -50%);  
     @include sp{
-      left: 80%;
-      width: 78px;
-    }
-    svg{
-      transition: all .3s;
-      @include sp{
-        width: 100%;
-        height: 100%;
-      }
-      @include hover{
-        &:hover{
-          transform: scale(1.2);
-          circle{
-            transition: fill-opacity .5s;
-            fill-opacity: 1;
-          }
-        }
-      }
+      left: 82%;
     }
   }
 }
@@ -541,10 +583,13 @@
   aspect-ratio: 0.94;
   @include sp{
     width: auto;
-    padding: 20px 20px;
+    padding: 30px 7%;
+    background: linear-gradient(rgba(0, 229, 153, 0.6) , rgba(0, 229, 153, 0.1));
   }
   .splide__slide.is-active:not(.splide__slide--clone) &{
-    transform: scale(1.4);
+    @include pc-tab{
+      transform: scale(1.4);
+    }
   }
   &-img{
     width: 145px;
@@ -561,16 +606,22 @@
     font-size: 2.1rem;
     font-weight: 800;
     @include sp{
-      font-size: 1.8rem;
+      font-size: 2.8rem;
     }
   }
   &-ja{
     margin-bottom: 20px;
     font-size: 1.4rem;
     font-weight: 800;
+    @include sp{
+      font-size: 1.9rem;
+    }
   }
   &-text{
     font-size: 1.167rem;
+    @include sp{
+      font-size: 1.6rem;
+    }
   }
 }
 
@@ -716,7 +767,7 @@ $communityFlowTop: 100px;
         top: $communityFlowTop;
         left: -10%;
         width: 2px;
-        height: 100%;
+        height: calc(100% + 10px);
         margin: auto;
         background: var(--themeColor);
         @include pc-tab{

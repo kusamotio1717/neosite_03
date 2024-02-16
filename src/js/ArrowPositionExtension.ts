@@ -1,6 +1,7 @@
 import type { Splide, Components, Options, BaseComponent } from '@splidejs/splide';
 
 interface ArrowPositionExtensionOptions {
+  disable?: boolean;
   offsetLeft?: number;
 }
 
@@ -13,10 +14,12 @@ declare module '@splidejs/splide' {
 export function ArrowPositionExtension(Splide: Splide, Components: Components, options: Options): BaseComponent {
   function mount() {
     Splide.on('resized', () => {
+      if (options.arrowPositionExtension?.disable) return;
       adjustArrow();
     });
 
     Splide.on('mounted', () => {
+      if (options.arrowPositionExtension?.disable) return;
       adjustArrow();
     });
   }
