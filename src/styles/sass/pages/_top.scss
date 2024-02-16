@@ -1,23 +1,5 @@
 @use '../foundation/variable' as *;
 
-.mv{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(77vh - 118px);
-  padding-bottom: 30px;
-  min-height: 758px;  
-  color: #fff;
-  z-index: 2;
-  @include sp{
-    height: 86vh;
-    min-height: auto;
-    justify-content: flex-start;
-    padding: 10% 0 0 12%;
-  }
-}
-
 .mvN3Link{
   position: fixed;
   bottom: 270px;
@@ -109,25 +91,6 @@
   @include sp{
     padding: 40px 0;
     @include section-center-sp;
-  }
-  &-title{
-    margin-bottom: 15px;
-    font-size: min(8rem , 7vw);
-    font-weight: 800;
-    text-align: center;
-    @include sp{
-      font-size: 3.2rem;
-      font-weight: 800;
-    }
-    em{
-      margin: 0 20px;
-      color: var(--themeColor);
-      font-size: min(9rem , 8vw);
-      @include sp{
-        font-size: 3.2rem;
-        margin: 0;
-      }
-    }
   }
   &-lead{
     position: relative;
@@ -1088,6 +1051,9 @@ $communityFlowTop: 100px;
 .newsMore{
   @include sp{
     margin-top: 0;
+  }
+  .btn-simple{
+    display: inline-flex;
   }
 }
 

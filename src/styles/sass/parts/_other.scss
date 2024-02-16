@@ -30,3 +30,17 @@
   width: 97%;
   margin: 0 0 0 auto;
 }
+
+a.is-outlink{
+  &::after{
+    content:'';
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-left: 5px;
+    background: url(/img/common/icon-outlink.svg) center center / contain no-repeat;
+    @include sp{
+      margin-left: 10px;
+    }
+  }
+}

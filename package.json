@@ -17,6 +17,7 @@
   "dependencies": {
     "@markuplint/astro-parser": "^3.11.0",
     "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@types/node": "^20.8.10",
     "astro": "^3.4.3",
     "astro-relative-links": "^0.3.4",

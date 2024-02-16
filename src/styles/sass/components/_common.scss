@@ -3,14 +3,74 @@
 #container{
   background: url(/img/top/bg-hexagon.svg) 15% -120px / 1769px 2641px ;
   @include sp{
-    background-image: url(/img/top/bg-hexagon3.svg);
-    background-size: 847px auto;
-    background-position: 406% 0;
+    background-image: none;
+  }
+  &.top{
+    @include sp{
+      background-image: url(/img/top/bg-hexagon3.svg);
+      background-size: 847px auto;
+      background-position: 43% 0;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.mv{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(77vh - 118px);
+  padding-bottom: 30px;
+  min-height: 758px;  
+  color: #fff;
+  z-index: 2;
+  @include sp{
+    height: 86vh;
+    min-height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 45% 0 0 12%;
+  }
+  &.is-heightNarrow{
+    min-height: 570px;
+  }
+}
+
+.mvSub{
+  margin-top: 15px;
+  @include sp{
+    margin-top: 25px;
+  }
+  &-ul{
+    display: flex;
+    gap: 40px;
+    @include sp{
+      display: block;
+    }
+    &-li{
+      font-size: 2rem;
+      @include sp{
+        font-size: 1.6rem;
+      }
+      & + &{
+        margin-top: 4px;
+        @include sp{
+          margin-top: 10px;
+        }
+      }
+      a{
+        display: block;
+        color: #fff;
+      }
+    }
   }
 }
 
 .js-accordion{
   &-title {
+    display: block;
     cursor: pointer;
     /* display: list-item;以外を指定してデフォルトの三角形アイコンを消します */
     transition: all .2s;
@@ -31,5 +91,21 @@
         padding: 0;
       }
     }
+  }
+}
+
+.js-tabContents-wrap{
+  position: relative;
+  transition: height .2s;
+  will-change: height;
+}
+
+.js-tabContents{
+  position: absolute;
+  opacity: 0;
+  transition: all .3s;
+  &.is-current{
+    opacity: 1;
+    transition-delay: .15s .1s;
   }
 }

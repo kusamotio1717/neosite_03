@@ -2,8 +2,8 @@
 import Layout from '@layouts/Layout.astro';
 ---
 
-<Layout>
-	<main>
+<Layout containerClass="top">
+	<main class="topPage">
 		<div class="mv">
 			<div class="mvCopy">
 				<h1 class="mvCopy-main">ALL IN ONE,<br>ALL IN <em>NEO</em></h1>
@@ -19,7 +19,7 @@ import Layout from '@layouts/Layout.astro';
 			</div>
 		</div>
 		<section class="welcome">
-			<h2 class="welcome-title">ようこそ<em>NEO</em>へ</h2>
+			<h2 class="title-big">ようこそ<em>NEO</em>へ</h2>
 			<div class="welcome-lead">NEOは、コミュニティ主導で<br class="for-sp">開発された<br class="for-pc">オープンソースの<br class="for-sp">ブロックチェーンプラットフォームです</div>
 			<div class="welcome-contents">
 				<div class="welcomeContents">
@@ -126,7 +126,7 @@ import Layout from '@layouts/Layout.astro';
 					<div class="technologyMarks-item"><img src="/img/top/tex-7@2x.webp" alt="" width="134" height="144"></div>
 				</div>
 			</div>
-			<div class="tecPanelsSlider splide">
+			<div id="slider1" class="tecPanelsSlider splide">
 				<div class="tecPanelsSlider-track splide__track">
 					<div class="tecPanelsSlider-list splide__list">
 						<div class="splide__slide">
@@ -370,7 +370,7 @@ import Layout from '@layouts/Layout.astro';
 					</div>
 				</div>
 				<div class="newsMore btnCenter section-center-sp">
-					<span class="btn-simple is-tobottom js-accordion-title" data-open="もっと見る" data-close="一部の表示に戻す">もっと見る</span>
+					<span class="btn-simple is-tobottom js-accordion-title js-accordion-more" data-open="もっと見る" data-close="一部の表示に戻す">もっと見る</span>
 				</div>
 			</div>
 		</section>

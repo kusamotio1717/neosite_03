@@ -5,3 +5,57 @@
   font-size: 1.6rem;
   font-weight: bold;
 }
+
+.title-big{
+  margin-bottom: 15px;
+  font-size: min(8rem , 7vw);
+  font-weight: 800;
+  text-align: center;
+  @include sp{
+    font-size: 3.2rem;
+    font-weight: 800;
+  }
+  em{
+    margin: 0 20px;
+    color: var(--themeColor);
+    font-size: min(9rem , 8vw);
+    @include sp{
+      font-size: 3.2rem;
+      margin: 0;
+    }
+  }
+  &.is-s{
+    font-size: min(6.4rem , 6vw);
+    @include sp{
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.title-l{
+  &.is-white{
+    color: #fff;
+  }
+  &.is-center{
+    text-align: center;
+  }
+  &-main{
+    font-size: min(8rem , 7vw);
+    font-weight: 800;
+    line-height: .95;
+    @include sp{
+      font-size: 4rem;
+    }
+  }
+  &-sub{
+    display: block;
+    font-size: min(3.2rem , 3vw);
+    font-weight: 800;
+    @include sp{
+      font-size: 1.6rem;
+    }
+  }
+  em{
+    color: var(--themeColor);
+  }
+}
