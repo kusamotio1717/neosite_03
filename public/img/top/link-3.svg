@@ -1,10 +1,1 @@
-<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_555_871" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="150" height="150">
-<rect width="150" height="150" fill="#D9D9D9"/>
-</mask>
-<g mask="url(#mask0_555_871)">
-<path d="M74.7956 9.82422L128.591 41.0635V103.542L74.7956 134.781L21 103.542V41.0635L74.7956 9.82422Z" fill="#F0F5F6"/>
-<path d="M51.3711 56.8364V90.3763L73.097 98.342V64.3829L96.703 55.5787L75.186 48.0322L51.3711 56.8364Z" fill="#00E599"/>
-<path d="M74.7686 65.6412V83.6688L96.7033 91.6345V57.4658L74.7686 65.6412Z" fill="#00AF92"/>
-</g>
-</svg>
+<svg fill="none" height="150" viewBox="0 0 150 150" width="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><mask id="a" height="150" maskUnits="userSpaceOnUse" width="150" x="0" y="0"><path d="m0 0h150v150h-150z" fill="#d9d9d9"/></mask><g mask="url(#a)"><path d="m74.7956 9.82422 53.7954 31.23928v62.4785l-53.7954 31.239-53.7956-31.239v-62.4785z" fill="#f0f5f6"/><path d="m51.3711 56.8364v33.5399l21.7259 7.9657v-33.9591l23.606-8.8042-21.517-7.5465z" fill="#00e599"/><path d="m74.7686 65.6412v18.0276l21.9347 7.9657v-34.1687z" fill="#00af92"/></g></svg>
